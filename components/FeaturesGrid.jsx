@@ -12,8 +12,27 @@ export default function FeaturesGrid() {
       ),
     },
     {
+      title: "Client Billing",
+      description: "Streamline progressive billing, track client invoices, manage payment milestones, and handle certificates of completion.",
+      icon: (idx) => (
+        <svg className="w-7 h-7 text-white" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+          <path fillRule="evenodd" d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" clipRule="evenodd" />
+        </svg>
+      ),
+    },
+    {
+      title: "Profit Margin Tracking",
+      description: "Analyze site costs, track material variances, and monitor real-time profit margins across all active projects.",
+      icon: (idx) => (
+        <svg className="w-7 h-7 text-white" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M12 7a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0V8.414l-4.293 4.293a1 1 0 01-1.414 0L8 10.414l-4.293 4.293a1 1 0 01-1.414-1.414l5-5a1 1 0 011.414 0L11 10.586 14.586 7H12z" clipRule="evenodd" />
+        </svg>
+      ),
+    },
+    {
       title: "Project Planning & Barcharts",
-      description: "Build interactive Gantt charts, establish critical task dependencies, optimize resource tracking, and monitor project timelines.",
+      description: "Build interactive Gantt charts, establish task dependencies, optimize resource tracking, and critical path.",
       icon: (idx) => (
         <svg className="w-7 h-7 text-white" viewBox="0 0 24 24" fill="currentColor">
           <path
@@ -26,7 +45,7 @@ export default function FeaturesGrid() {
     },
     {
       title: "Project Management",
-      description: "Manage projects, tasks, site updates and milestones in one place.",
+      description: "Manage projects, tasks, subcontractors, site updates and milestones in one place.",
       icon: (idx) => (
         <svg className="w-7 h-7 text-white" viewBox="0 0 20 20" fill="currentColor">
           <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
@@ -36,7 +55,7 @@ export default function FeaturesGrid() {
     },
     {
       title: "Purchase Management",
-      description: "Manage purchase requests, approvals, vendors and PO tracking.",
+      description: "Manage purchase requests, approvals, delivery notes and GRN, vendors and PO tracking.",
       icon: (idx) => (
         <svg className="w-7 h-7 text-white" viewBox="0 0 20 20" fill="currentColor">
           <path d="M3 1a1 1 0 000 2h1.22l.305 1.222a.997.997 0 00.01.042l1.358 5.43-.893.892C3.74 11.846 4.632 14 6.414 14H15a1 1 0 100-2H6.414l1-1H14a1 1 0 00.894-.553l3-6A1 1 0 0017 3H6.28l-.31-1.243A1 1 0 005 1H3zM16 16.5a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zM6.5 18a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" />
@@ -45,7 +64,7 @@ export default function FeaturesGrid() {
     },
     {
       title: "Procurement",
-      description: "Track purchase orders, vendor relations, sourcing and supply chains.",
+      description: "Track purchase orders, vendor relations, and sourcing.",
       icon: (idx) => (
         <svg className="w-7 h-7 text-white" viewBox="0 0 20 20" fill="currentColor">
           <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
@@ -91,7 +110,7 @@ export default function FeaturesGrid() {
       ),
     },
     {
-      title: "Mobile App for Technicians",
+      title: "Mobile Apps",
       description: "Field app for technicians and site staff.",
       icon: (idx) => (
         <svg className="w-7 h-7 text-white" viewBox="0 0 20 20" fill="currentColor">
@@ -108,6 +127,15 @@ export default function FeaturesGrid() {
         </svg>
       ),
     },
+    {
+      title: "User Permission & Document Approval",
+      description: "Features are controlled by user permission and document approval.",
+      icon: (idx) => (
+        <svg className="w-7 h-7 text-white" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+        </svg>
+      ),
+    },
   ];
 
   return (
@@ -120,10 +148,10 @@ export default function FeaturesGrid() {
             Core Modules
           </h2>
           <h3 className="text-3xl sm:text-4xl font-extrabold text-brand-blue tracking-tight">
-            Everything Construction Professionals Need in One Platform
+            Everything that Construction Professionals Need in One Platform
           </h3>
           <p className="text-base sm:text-lg text-brand-gray">
-            All-in-one software to manage your projects, teams, and operations from the office or the field.
+            All-in-one software to manage your projects, teams, and operations from the office or the sites.
           </p>
         </div>
 

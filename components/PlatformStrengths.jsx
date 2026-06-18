@@ -22,11 +22,11 @@ export default function PlatformStrengths() {
     },
     {
       index: "03",
-      title: "Cloud Based",
-      desc: "Access from anywhere with secure cloud system.",
+      title: "25+ Years of Experience",
+      desc: "Over two decades of proven success in construction ERP software.",
       icon: (
         <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-          <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z" />
+          <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
         </svg>
       ),
     },
@@ -80,6 +80,26 @@ export default function PlatformStrengths() {
         </svg>
       ),
     },
+    {
+      index: "09",
+      title: "Strong Customization",
+      desc: "Tailor the software to match your exact business processes and operational workflows.",
+      icon: (
+        <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+          <path d="M5 4a1 1 0 00-2 0v7.268a2 2 0 000 3.464V16a1 1 0 102 0v-1.268a2 2 0 000-3.464V4zM11 4a1 1 0 10-2 0v1.268a2 2 0 000 3.464V16a1 1 0 102 0V8.732a2 2 0 000-3.464V4zM16 3a1 1 0 011 1v7.268a2 2 0 010 3.464V16a1 1 0 11-2 0v-1.268a2 2 0 010-3.464V4a1 1 0 011-1z" />
+        </svg>
+      ),
+    },
+    {
+      index: "10",
+      title: "From Construction → For Construction People",
+      desc: "Developed by contractors, for contractors, to streamline your construction operations.",
+      icon: (
+        <svg className="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
+          <path fillRule="evenodd" d="M10 2a1 1 0 00-1 1v1a1 1 0 002 0V3a1 1 0 00-1-1zM4 7a3 3 0 013-3h6a3 3 0 013 3v2a1 1 0 01-1 1H5a1 1 0 01-1-1V7zm1 5a2 2 0 00-2 2v3a1 1 0 001 1h14a1 1 0 001-1v-3a2 2 0 00-2-2H5z" clipRule="evenodd" />
+        </svg>
+      ),
+    },
   ];
 
   return (
@@ -100,7 +120,7 @@ export default function PlatformStrengths() {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {strengths.map((strength, idx) => (
             <div
               key={idx}

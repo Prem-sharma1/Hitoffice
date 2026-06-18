@@ -19,7 +19,7 @@ export default function Industries() {
       ),
     },
     {
-      title: "Architecture & Design",
+      title: "Architectures",
       desc: "Manage blueprint version control, track project estimation workflows, log drawing revisions, and streamline client design approvals.",
       icon: (
         <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="currentColor">

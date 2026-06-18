@@ -58,7 +58,7 @@ export default function Hero({ onBookDemo }) {
 
           {/* Right Visual Column */}
           {/* ENHANCED SIZING: Constrained max-widths from md (720px) up to xl (1250px) to prevent overlapping */}
-          <div className="lg:col-span-7 relative animate-fade-in [perspective:1000px] w-full max-w-[440px] sm:max-w-[520px] md:max-w-[560px] lg:max-w-[440px] xl:max-w-[580px] 2xl:max-w-none mx-auto lg:ml-auto">
+          <div className="lg:col-span-7 relative z-0 animate-fade-in [perspective:1000px] w-full max-w-[440px] sm:max-w-[520px] md:max-w-[560px] lg:max-w-[440px] xl:max-w-[580px] 2xl:max-w-none mx-auto lg:ml-auto">
             <div className="relative mx-auto w-full">
 
               {/* Soft glow shadow behind the dashboard */}
@@ -76,13 +76,13 @@ export default function Hero({ onBookDemo }) {
                 {/* Screen Content */}
                 <div className="bg-slate-50 aspect-[16/10] relative rounded-b-xl overflow-hidden">
                   <Image
-                    src="/assets/dashboard_hero.png"
+                    src="/assets/HitOffice.png"
                     alt="Hitoffice ERP Dashboard"
                     fill
-                    sizes="(max-w-768px) 100vw, (max-w-1200px) 50vw, 55vw"
+                    sizes="(max-w-868px) 100vw, (max-w-900px) 40vw, 55vw"
                     priority
                     className="object-cover"
-                    style={{ objectPosition: "center 35%", transform: "scale(1.15)" }}
+                    style={{ objectPosition: "center 42%", transform: "scale(1.15)" }}
                   />
                   {/* Sweep shine effect on hover */}
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-out pointer-events-none" />
@@ -90,57 +90,83 @@ export default function Hero({ onBookDemo }) {
               </div>
 
               {/* 1. PROJECT PROGRESS (Top-Left) */}
-              <div className="absolute sm:-left-6 lg:left-[-12px] xl:-left-8 2xl:-left-12 top-4 sm:top-6 bg-white/80 backdrop-blur-md border border-white/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex animate-float">
-                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-blue-100 flex items-center justify-center text-blue-600 text-sm xl:text-lg flex-shrink-0">
+              <div className="absolute sm:-left-16 md:-left-20 lg:left-[-20px] xl:-left-28 2xl:-left-40 top-4 sm:top-6 bg-blue-50/90 backdrop-blur-md border border-blue-200/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(30,86,160,0.08)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex animate-float">
+                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-blue-600 flex items-center justify-center text-white text-sm xl:text-lg flex-shrink-0">
                   📊
                 </div>
                 <div className="text-left leading-none">
-                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-slate-400">PROJECT PROGRESS</div>
-                  <div className="text-[11px] xl:text-sm font-extrabold text-slate-800 mt-1 xl:mt-1.5">92% Completion</div>
+                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-blue-700/80">PROJECT PROGRESS</div>
+                  <div className="text-[11px] xl:text-sm font-extrabold text-blue-900 mt-1 xl:mt-1.5">92% Completion</div>
                 </div>
               </div>
 
               {/* 2. INVENTORY (Bottom-Left) */}
-              <div className="absolute sm:-left-6 lg:left-[-12px] xl:-left-8 2xl:-left-12 bottom-4 sm:bottom-6 bg-white/80 backdrop-blur-md border border-white/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex lg:hidden xl:flex animate-float-reverse [animation-delay:1.5s]">
-                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-orange-100 flex items-center justify-center text-orange-600 text-sm xl:text-lg flex-shrink-0">
+              <div className="absolute sm:-left-16 md:-left-20 lg:left-[-20px] xl:-left-28 2xl:-left-40 bottom-4 sm:bottom-6 bg-amber-50/90 backdrop-blur-md border border-amber-200/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(211,117,6,0.08)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex lg:hidden xl:flex animate-float-reverse [animation-delay:1.5s]">
+                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-amber-600 flex items-center justify-center text-white text-sm xl:text-lg flex-shrink-0">
                   📦
                 </div>
                 <div className="text-left leading-none">
-                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-slate-400">INVENTORY</div>
-                  <div className="text-[11px] xl:text-sm font-extrabold text-slate-800 mt-1 xl:mt-1.5">Stock Optimized</div>
+                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-amber-800/90">INVENTORY</div>
+                  <div className="text-[11px] xl:text-sm font-extrabold text-amber-950 mt-1 xl:mt-1.5">Stock Optimize</div>
                 </div>
               </div>
 
               {/* 3. CASH FLOW (Middle-Right) */}
-              <div className="absolute sm:-right-6 lg:right-[-12px] xl:right-[-24px] 2xl:right-[-48px] lg:left-auto top-[42%] -translate-y-1/2 bg-white/80 backdrop-blur-md border border-white/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex animate-float [animation-delay:3s]">
-                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-green-100 flex items-center justify-center text-green-600 text-sm xl:text-lg flex-shrink-0">
+              <div className="absolute sm:-right-16 md:-right-20 lg:right-[-20px] xl:right-[-32px] 2xl:right-[-52px] lg:left-auto top-[42%] -translate-y-1/2 bg-emerald-50/90 backdrop-blur-md border border-emerald-200/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(16,185,129,0.08)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex animate-float [animation-delay:3s]">
+                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-emerald-600 flex items-center justify-center text-white text-sm xl:text-lg flex-shrink-0">
                   💵
                 </div>
                 <div className="text-left leading-none">
-                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-slate-400">CASH FLOW</div>
-                  <div className="text-[11px] xl:text-sm font-extrabold text-slate-800 mt-1 xl:mt-1.5">+15% Profit</div>
+                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-emerald-800/90">CASH FLOW</div>
+                  <div className="text-[10px] xl:text-xs font-extrabold mt-1 xl:mt-1.5 flex items-center space-x-1.5 whitespace-nowrap">
+                    <span className="text-emerald-700">Cash In</span>
+                    <span className="text-emerald-300 font-normal">|</span>
+                    <span className="text-rose-600 font-extrabold">Cash Out</span>
+                  </div>
                 </div>
               </div>
 
               {/* 4. SITE ATTENDANCE (Top-Right) */}
-              <div className="absolute sm:-right-2 lg:right-[-8px] xl:-right-2 2xl:-right-4 top-2 bg-white/80 backdrop-blur-md border border-white/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex lg:hidden xl:flex animate-float-reverse [animation-delay:4.5s]">
-                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-indigo-100 flex items-center justify-center text-indigo-600 text-sm xl:text-lg flex-shrink-0">
+              <div className="absolute sm:-right-10 md:-right-12 lg:right-[-12px] xl:-right-16 2xl:-right-24 top-2 bg-indigo-50/90 backdrop-blur-md border border-indigo-200/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(79,70,229,0.08)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex lg:hidden xl:flex animate-float-reverse [animation-delay:4.5s]">
+                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-indigo-600 flex items-center justify-center text-white text-sm xl:text-lg flex-shrink-0">
                   👷
                 </div>
                 <div className="text-left leading-none">
-                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-slate-400">SITE ATTENDANCE</div>
-                  <div className="text-[11px] xl:text-sm font-extrabold text-slate-800 mt-1 xl:mt-1.5">120 Active</div>
+                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-indigo-800/90">SITE ATTENDANCE</div>
+                  <div className="text-[11px] xl:text-sm font-extrabold text-indigo-950 mt-1 xl:mt-1.5">120 Active</div>
                 </div>
               </div>
 
               {/* 5. CRM LEADS (Bottom-Right) */}
-              <div className="absolute sm:-right-4 lg:right-[-8px] xl:-right-2 2xl:-right-8 bottom-4 sm:bottom-6 bg-white/80 backdrop-blur-md border border-white/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex lg:hidden xl:flex animate-float [animation-delay:2.2s]">
-                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-cyan-100 flex items-center justify-center text-cyan-600 text-sm xl:text-lg flex-shrink-0">
+              <div className="absolute sm:-right-12 md:-right-16 lg:right-[-12px] xl:-right-16 2xl:-right-24 bottom-4 sm:bottom-6 bg-cyan-50/90 backdrop-blur-md border border-cyan-200/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(6,182,212,0.08)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex lg:hidden xl:flex animate-float [animation-delay:2.2s]">
+                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-cyan-600 flex items-center justify-center text-white text-sm xl:text-lg flex-shrink-0">
                   👥
                 </div>
                 <div className="text-left leading-none">
-                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-slate-400">CRM LEADS</div>
-                  <div className="text-[11px] xl:text-sm font-extrabold text-slate-800 mt-1 xl:mt-1.5">+45 New Leads</div>
+                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-cyan-800/90">CRM LEADS</div>
+                  <div className="text-[11px] xl:text-sm font-extrabold text-cyan-950 mt-1 xl:mt-1.5">+45 New Leads</div>
+                </div>
+              </div>
+
+              {/* 6. CLIENT BILLING (Middle-Left) */}
+              <div className="absolute sm:-left-16 md:-left-20 lg:left-[-20px] xl:-left-28 2xl:-left-40 top-[45%] -translate-y-1/2 bg-purple-50/90 backdrop-blur-md border border-purple-200/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(147,51,234,0.08)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex lg:hidden xl:flex animate-float-reverse [animation-delay:1s]">
+                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-purple-600 flex items-center justify-center text-white text-sm xl:text-lg flex-shrink-0">
+                  🧾
+                </div>
+                <div className="text-left leading-none">
+                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-purple-800/90">CLIENT BILLING</div>
+                  <div className="text-[11px] xl:text-sm font-extrabold text-purple-950 mt-1 xl:mt-1.5">Progress Invoices</div>
+                </div>
+              </div>
+
+              {/* 7. PROFIT MARGIN (Lower-Right) */}
+              <div className="absolute left-1/2 -translate-x-1/2 -translate-y-1/2 top-[10%] bg-rose-50/90 backdrop-blur-md border border-rose-200/60 py-2 xl:py-3 px-3 xl:px-4 rounded-2xl shadow-[0_8px_30px_rgba(244,63,94,0.08)] flex items-center space-x-2 xl:space-x-3 hover:scale-105 transition-transform duration-300 pointer-events-none hidden sm:flex animate-float [animation-delay:1.8s]">
+                <div className="w-8 h-8 xl:w-9 xl:h-9 rounded-xl bg-rose-600 flex items-center justify-center text-white text-sm xl:text-lg flex-shrink-0">
+                  📈
+                </div>
+                <div className="text-left leading-none">
+                  <div className="text-[9px] xl:text-[10px] font-bold uppercase tracking-wider text-rose-800/90">PROFIT MARGIN</div>
+                  <div className="text-[11px] xl:text-sm font-extrabold text-rose-950 mt-1 xl:mt-1.5">Healthy Margins</div>
                 </div>
               </div>
 

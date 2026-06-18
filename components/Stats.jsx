@@ -27,7 +27,7 @@ export default function Stats() {
   const stats = [
     {
       label: "Projects Managed",
-      renderValue: () => <><Counter target={500} />+</>,
+      renderValue: () => <><Counter target={4000} />+</>,
       icon: (
         <svg className="w-8 h-8 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
           <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.43a1 1 0 001.17-1.408l-7-14z" />
@@ -36,7 +36,7 @@ export default function Stats() {
     },
     {
       label: "Construction Clients",
-      renderValue: () => <><Counter target={1500} />+</>,
+      renderValue: () => <><Counter target={1700} />+</>,
       icon: (
         <svg className="w-8 h-8 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
           <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />

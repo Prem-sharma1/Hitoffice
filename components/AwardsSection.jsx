@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 export default function AwardsSection() {
   const awards = [
@@ -78,10 +79,12 @@ export default function AwardsSection() {
             >
               {/* FIXED IMAGE CONTAINER: Handles all image aspect ratios beautifully */}
               <div className="relative w-full h-64 bg-white flex items-center justify-center p-3 border-b border-slate-100 overflow-hidden">
-                <img
+                <Image
                   src={award.image}
                   alt={award.title}
-                  className="max-w-full max-h-full object-contain transition-transform duration-500 group-hover:scale-102"
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="p-3 object-contain transition-transform duration-500 group-hover:scale-102"
                 />
                 <div className="absolute inset-0 bg-black/[0.02] pointer-events-none"></div>
               </div>

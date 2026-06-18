@@ -5,7 +5,6 @@ import Image from "next/image";
 const navLinks = [
   { name: "Home", href: "#" },
   { name: "Modules", href: "#features" },
-  { name: "Dashboard", href: "#dashboard" },
   { name: "Mobile App", href: "#mobile-app" },
   { name: "Industries", href: "#industries" },
   { name: "Why Choose Us", href: "#platform" },
@@ -68,22 +67,21 @@ export default function Navbar({ onBookDemo }) {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "glass-nav py-2.5 shadow-sm bg-white/95 backdrop-blur-md" : "bg-transparent py-4.5"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-nav py-2.5 shadow-sm bg-white/95 backdrop-blur-md" : "bg-transparent py-4.5"
+        }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          
+
           {/* Logo Container */}
           <div className="flex-shrink-0 flex items-center">
             <a href="#" className="flex items-center space-x-2">
-              <div className="relative w-[120px] sm:w-[130px] h-[40px] sm:h-[45px] hover:scale-105 transition-transform duration-200">
+              <div className="relative w-[155px] sm:w-[180px] h-[50px] sm:h-[58px] hover:scale-105 transition-transform duration-200">
                 <Image
-                  src="/assets/hitoffice.png"
+                  src="/assets/hitofficelogo.png"
                   alt="Hitoffice Logo"
                   fill
-                  sizes="(max-w-640px) 120px, 130px"
+                  sizes="(max-width: 640px) 155px, 180px"
                   priority
                   className="object-contain object-left"
                 />
@@ -98,11 +96,10 @@ export default function Navbar({ onBookDemo }) {
                 key={link.name}
                 href={link.href}
                 onClick={() => setActiveLink(link.name)}
-                className={`relative py-2 text-xs xl:text-sm font-semibold transition-all whitespace-nowrap ${
-                  activeLink === link.name
-                    ? "text-blue-600"
-                    : "text-slate-600 hover:text-blue-600 underline-slide"
-                }`}
+                className={`relative py-2 text-xs xl:text-sm font-semibold transition-all whitespace-nowrap ${activeLink === link.name
+                  ? "text-blue-600"
+                  : "text-slate-600 hover:text-blue-600 underline-slide"
+                  }`}
               >
                 {link.name}
                 {activeLink === link.name && (
@@ -146,9 +143,8 @@ export default function Navbar({ onBookDemo }) {
 
       {/* Mobile & Tablet Dropdown Panel */}
       <div
-        className={`lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-xl transition-all duration-300 ease-in-out origin-top ${
-          isOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible h-0"
-        }`}
+        className={`lg:hidden absolute top-full left-0 right-0 bg-white border-b border-gray-100 shadow-xl transition-all duration-300 ease-in-out origin-top ${isOpen ? "opacity-100 scale-y-100 visible" : "opacity-0 scale-y-95 invisible h-0"
+          }`}
         style={{ maxHeight: isOpen ? "calc(100vh - 4.5rem)" : "0px", overflowY: "auto" }}
       >
         <div className="px-5 pt-3 pb-8 space-y-1">
@@ -160,16 +156,15 @@ export default function Navbar({ onBookDemo }) {
                 setActiveLink(link.name);
                 setIsOpen(false);
               }}
-              className={`block w-full py-3 px-2 text-base font-medium rounded-lg transition-colors ${
-                activeLink === link.name
-                  ? "text-blue-600 bg-blue-50/50 font-semibold"
-                  : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-              }`}
+              className={`block w-full py-3 px-2 text-base font-medium rounded-lg transition-colors ${activeLink === link.name
+                ? "text-blue-600 bg-blue-50/50 font-semibold"
+                : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
+                }`}
             >
               {link.name}
             </a>
           ))}
-          
+
           {/* Mobile Action Button */}
           <div className="pt-5 mt-2 border-t border-slate-100">
             <button

@@ -14,7 +14,7 @@ export default function FeatureShowcase({ onBookDemo }) {
     <section className="py-24 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
+
           {/* Left Text Column */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
@@ -56,7 +56,7 @@ export default function FeatureShowcase({ onBookDemo }) {
               >
                 Book a Free Live Demo
               </button>
-             
+
             </div>
           </div>
 
@@ -64,7 +64,7 @@ export default function FeatureShowcase({ onBookDemo }) {
           <div className="lg:col-span-7 relative">
             {/* Background glowing shape */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[110%] h-[110%] bg-blue-50/50 rounded-3xl -z-10 rotate-1 blur-sm" />
-            
+
             {/* Browser Frame */}
             <div className="relative bg-white border border-brand-border rounded-2xl shadow-xl overflow-hidden">
               {/* Browser Header Bar */}

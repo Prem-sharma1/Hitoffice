@@ -24,11 +24,12 @@ export default function Footer() {
           {/* Column 1: Logo and Details */}
           <div className="space-y-6">
             <div className="flex items-center space-x-3">
-              <div className="relative w-[130px] h-[45px] hover:scale-105 transition-transform duration-200">
+              <div className="relative w-[180px] h-[58px] hover:scale-105 transition-transform duration-200">
                 <Image
-                  src="/assets/hitoffice.png"
+                  src="/assets/hitofficelogo.png"
                   alt="Hitoffice Logo"
                   fill
+                  sizes="180px"
                   className="object-contain object-left"
                 />
               </div>
@@ -67,30 +68,36 @@ export default function Footer() {
           <div className="space-y-4">
             <h4 className="text-white font-bold text-sm uppercase tracking-wider">Contact Info</h4>
             <ul className="space-y-3.5 text-sm">
-              <li className="flex items-center space-x-2.5">
-                <svg className="w-4 h-4 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                <span className="text-slate-400 hover:text-white transition-colors">+32 (0) 4 372 10 32</span>
-              </li>
-              <li className="flex items-center space-x-2.5">
-                <svg className="w-4 h-4 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <a href="mailto:info@hitoffice.com" className="text-slate-400 hover:text-white transition-colors">info@hitoffice.com</a>
-              </li>
               <li className="flex items-start space-x-2.5">
                 <svg className="w-4 h-4 text-blue-500 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
-                <span className="text-slate-400 leading-normal">Rue de l'Avenir 4b, 4460 Grâce-Hollogne, Belgium</span>
+                <span className="text-slate-400 leading-normal">
+                  13, Kedar Empire, S.No. 42 A/1A/2Y, Karve Road, Erandwane, Pune- 411004.
+                </span>
               </li>
               <li className="flex items-center space-x-2.5">
-                <svg className="w-4 h-4 text-emerald-500 flex-shrink-0 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 001.37 5.029L2 22l5.13-1.347a9.92 9.92 0 004.887 1.277h.005c5.505 0 9.988-4.478 9.99-9.985A9.983 9.983 0 0012.012 2zm5.72 14.12c-.25.703-1.42 1.3-1.95 1.38-.48.07-1.1.09-3.29-.82-2.8-1.16-4.6-4.03-4.74-4.22-.14-.19-1.15-1.53-1.15-2.92a3.02 3.02 0 01.93-2.22c.28-.27.61-.34.81-.34.2 0 .39.01.56.02.18.01.42-.08.66.49.25.59.85 2.08.92 2.23.08.15.13.33.03.53-.1.2-.15.33-.3.51-.15.18-.32.4-.45.54-.15.15-.31.32-.13.63.18.31.81 1.33 1.74 2.16 1.2 1.07 2.21 1.4 2.52 1.56.31.15.49.13.68-.09.19-.22.82-.95 1.04-1.28.22-.33.44-.28.75-.17.3.11 1.93.91 2.26 1.08.33.16.55.24.63.38.08.14.08.82-.17 1.52z" />
+                <svg className="w-4 h-4 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                <a href="https://wa.me/3243721032" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-emerald-400 transition-colors font-semibold">Chat on WhatsApp</a>
+                <div className="flex flex-col text-slate-400">
+                  <a href="tel:020-65612187" className="hover:text-white transition-colors">020- 65612187</a>
+                  <a href="tel:+919822047368" className="hover:text-white transition-colors">09822047368</a>
+                  <a href="tel:+919209585264" className="hover:text-white transition-colors">9209585264</a>
+                </div>
+              </li>
+              <li className="flex items-center space-x-2.5">
+                <svg className="w-4 h-4 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+                <a href="mailto:info@edss.co.in" className="text-slate-400 hover:text-white transition-colors">info@edss.co.in</a>
+              </li>
+              <li className="flex items-center space-x-2.5">
+                <svg className="w-4 h-4 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                </svg>
+                <a href="https://www.hit-office.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">www.hit-office.com</a>
               </li>
             </ul>
           </div>

@@ -76,7 +76,7 @@ export default function Hero({ onBookDemo }) {
                 {/* Screen Content */}
                 <div className="bg-slate-50 aspect-[16/10] relative rounded-b-xl overflow-hidden">
                   <Image
-                    src="/assets/HitOffice.png"
+                    src="/assets/hitoffice.png"
                     alt="Hitoffice ERP Dashboard"
                     fill
                     sizes="(max-w-868px) 100vw, (max-w-900px) 40vw, 55vw"

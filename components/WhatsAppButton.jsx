@@ -37,7 +37,7 @@ export default function WhatsAppButton() {
       {/* Floating Tooltip Pill (Left side of the button, visible on larger screens) */}
       {showTooltip && (
         <a
-          href="https://wa.me/3243721032"
+          href="https://wa.me/919209585264"
           target="_blank"
           rel="noopener noreferrer"
           className="hidden md:flex items-center gap-2.5 bg-white text-slate-800 shadow-xl shadow-slate-900/10 border border-slate-100/90 rounded-full py-2.5 px-4 animate-fade-in hover:border-emerald-400 transition-all duration-300 hover:scale-105 hover:-translate-x-1 group/pill"
@@ -69,7 +69,7 @@ export default function WhatsAppButton() {
 
       {/* Main WhatsApp Button */}
       <a
-        href="https://wa.me/3243721032"
+        href="https://wa.me/919209585264"
         target="_blank"
         rel="noopener noreferrer"
         className="relative flex items-center justify-center w-14 h-14 rounded-full bg-[#25D366] text-white shadow-xl shadow-emerald-500/40 hover:shadow-emerald-500/60 hover:bg-[#20ba59] hover:scale-110 active:scale-95 transition-all duration-300 group cursor-pointer"

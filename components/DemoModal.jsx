@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 export default function DemoModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
@@ -16,6 +16,99 @@ export default function DemoModal({ isOpen, onClose }) {
 
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  const [showCalendar, setShowCalendar] = useState(false);
+  const [currentMonth, setCurrentMonth] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState("");
+
+  const TIME_SLOTS = ["10:00 AM", "11:30 AM", "2:00 PM", "3:30 PM", "5:00 PM"];
+
+  const getDaysInMonth = (date) => {
+    return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+  };
+
+  const getFirstDayOfMonth = (date) => {
+    return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
+  };
+
+  const prevMonth = () => {
+    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() - 1, 1));
+  };
+
+  const nextMonth = () => {
+    setCurrentMonth(new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 1));
+  };
+
+  const isToday = (date) => {
+    const today = new Date();
+    return (
+      date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear()
+    );
+  };
+
+  const isPast = (date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    return date < today;
+  };
+
+  const isSelected = (date) => {
+    if (!selectedDate) return false;
+    return (
+      date.getDate() === selectedDate.getDate() &&
+      date.getMonth() === selectedDate.getMonth() &&
+      date.getFullYear() === selectedDate.getFullYear()
+    );
+  };
+
+  const handleDayClick = (day) => {
+    setSelectedDate(day);
+    setSelectedTime("");
+    const formattedDate = day.toLocaleDateString("en-IN", {
+      day: "numeric",
+      month: "short",
+      year: "numeric"
+    });
+    setFormData((prev) => ({
+      ...prev,
+      preferredDate: formattedDate,
+    }));
+  };
+
+  const handleTimeClick = (timeSlot) => {
+    setSelectedTime(timeSlot);
+    if (selectedDate) {
+      const formattedDate = selectedDate.toLocaleDateString("en-IN", {
+        day: "numeric",
+        month: "short",
+        year: "numeric"
+      });
+      const fullDateTime = `${formattedDate} at ${timeSlot}`;
+      setFormData((prev) => ({
+        ...prev,
+        preferredDate: fullDateTime,
+      }));
+      setTimeout(() => {
+        setShowCalendar(false);
+      }, 300);
+    }
+  };
+
+  const daysInMonth = getDaysInMonth(currentMonth);
+  const firstDayIndex = getFirstDayOfMonth(currentMonth);
+  const year = currentMonth.getFullYear();
+  const month = currentMonth.getMonth();
+
+  const days = [];
+  for (let i = 0; i < firstDayIndex; i++) {
+    days.push(null);
+  }
+  for (let i = 1; i <= daysInMonth; i++) {
+    days.push(new Date(year, month, i));
+  }
 
   if (!isOpen) return null;
 
@@ -54,6 +147,8 @@ export default function DemoModal({ isOpen, onClose }) {
             websiteLink: "",
             preferredDate: "",
           });
+          setSelectedDate(null);
+          setSelectedTime("");
           onClose();
         }, 2500);
       } else {
@@ -266,19 +361,134 @@ export default function DemoModal({ isOpen, onClose }) {
                     <label className="block text-xs font-bold tracking-wide text-slate-700 uppercase mb-1.5">
                       Preferred Date for Demo? <span className="text-red-500">*</span>
                     </label>
-                    <div className="relative group">
-                      <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-400 group-focus-within:text-blue-500 transition-colors duration-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                      </svg>
-                      <input
-                        type="text"
-                        name="preferredDate"
-                        required
-                        value={formData.preferredDate}
-                        onChange={handleChange}
-                        placeholder="Example: 7th December at 3:00 PM"
-                        className="w-full border border-slate-200 bg-slate-50/40 rounded-xl pl-10 pr-3.5 py-2.5 text-sm font-medium text-slate-800 placeholder-slate-400 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100/60 transition-all outline-none"
-                      />
+                    <div className="relative">
+                      {/* Transparent backdrop overlay to click-away-to-close */}
+                      {showCalendar && (
+                        <div 
+                          className="fixed inset-0 z-40 bg-transparent" 
+                          onClick={() => setShowCalendar(false)}
+                        />
+                      )}
+
+                      <div className="relative group z-45">
+                        <svg className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4.5 h-4.5 text-slate-400 group-focus-within:text-blue-500 transition-colors duration-200 pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                        </svg>
+                        <input
+                          type="text"
+                          name="preferredDate"
+                          required
+                          readOnly
+                          onClick={() => setShowCalendar(!showCalendar)}
+                          value={formData.preferredDate}
+                          placeholder="Select preferred date & time"
+                          className="w-full border border-slate-200 bg-slate-50/40 rounded-xl pl-10 pr-10 py-2.5 text-sm font-medium text-slate-800 placeholder-slate-400 focus:bg-white focus:border-blue-500 focus:ring-4 focus:ring-blue-100/60 transition-all outline-none cursor-pointer"
+                        />
+                        <div className="absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400">
+                          <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </div>
+                      </div>
+
+                      {/* Floating Custom Calendar Dropdown */}
+                      {showCalendar && (
+                        <div className="absolute top-full left-0 mt-2 w-full sm:w-[360px] bg-white rounded-2xl border border-slate-100 shadow-2xl p-4 z-50 animate-slide-up max-h-[420px] overflow-y-auto">
+                          {/* Calendar Header */}
+                          <div className="flex items-center justify-between mb-3">
+                            <button
+                              type="button"
+                              onClick={prevMonth}
+                              className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-600 transition-colors"
+                            >
+                              <svg className="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+                              </svg>
+                            </button>
+                            <span className="font-bold text-slate-800 text-sm">
+                              {currentMonth.toLocaleString("default", { month: "long", year: "numeric" })}
+                            </span>
+                            <button
+                              type="button"
+                              onClick={nextMonth}
+                              className="p-1.5 rounded-lg hover:bg-slate-100 text-slate-600 transition-colors"
+                            >
+                              <svg className="w-4.5 h-4.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                              </svg>
+                            </button>
+                          </div>
+
+                          {/* Weekdays */}
+                          <div className="grid grid-cols-7 gap-1 text-center text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">
+                            <span>Su</span>
+                            <span>Mo</span>
+                            <span>Tu</span>
+                            <span>We</span>
+                            <span>Th</span>
+                            <span>Fr</span>
+                            <span>Sa</span>
+                          </div>
+
+                          {/* Days Grid */}
+                          <div className="grid grid-cols-7 gap-1">
+                            {days.map((day, idx) => {
+                              if (!day) return <div key={`empty-${idx}`} />;
+                              
+                              const isTodayVal = isToday(day);
+                              const isPastVal = isPast(day);
+                              const isSelectedVal = isSelected(day);
+
+                              return (
+                                <button
+                                  key={`day-${day.getTime()}`}
+                                  type="button"
+                                  disabled={isPastVal}
+                                  onClick={() => handleDayClick(day)}
+                                  className={`
+                                    h-8 w-8 mx-auto rounded-lg text-xs font-bold transition-all flex items-center justify-center cursor-pointer
+                                    ${isPastVal ? "text-slate-200 cursor-not-allowed" : ""}
+                                    ${!isPastVal && !isSelectedVal ? "text-slate-700 hover:bg-blue-50 hover:text-[#1E56A0]" : ""}
+                                    ${isSelectedVal ? "bg-[#1E56A0] text-white shadow-md shadow-blue-500/20" : ""}
+                                    ${isTodayVal && !isSelectedVal ? "border-2 border-orange-500 text-orange-600" : ""}
+                                  `}
+                                >
+                                  {day.getDate()}
+                                </button>
+                              );
+                            })}
+                          </div>
+
+                          {/* Time Slots Section */}
+                          {selectedDate && (
+                            <div className="mt-4 pt-3 border-t border-slate-100">
+                              <span className="block text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-2">
+                                Available Time Slots (IST)
+                              </span>
+                              <div className="grid grid-cols-3 gap-1.5">
+                                {TIME_SLOTS.map((slot) => {
+                                  const isTimeSelected = selectedTime === slot;
+                                  return (
+                                    <button
+                                      key={slot}
+                                      type="button"
+                                      onClick={() => handleTimeClick(slot)}
+                                      className={`
+                                        py-1.5 px-2 rounded-lg text-xs font-semibold text-center transition-all cursor-pointer border
+                                        ${isTimeSelected 
+                                          ? "bg-orange-500 border-orange-500 text-white shadow-md shadow-orange-500/20" 
+                                          : "border-slate-200 text-slate-700 hover:bg-slate-50 hover:border-slate-300"}
+                                      `}
+                                    >
+                                      {slot}
+                                    </button>
+                                  );
+                                })}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   </div>
 

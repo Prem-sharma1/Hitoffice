@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 
-export default function Hero({ onBookDemo }) {
+export default function Hero({ onBookDemo, onWatchDemo }) {
   return (
     <section className="relative pt-24 pb-20 sm:pt-32 sm:pb-24 lg:pt-36 lg:pb-28 xl:pt-40 xl:pb-36 overflow-hidden bg-gradient-to-b from-[#F7F9FC] via-white to-white">
       {/* Background soft decorative blur shapes */}
@@ -18,8 +18,8 @@ export default function Hero({ onBookDemo }) {
 
             {/* Fluid typography to handle extreme structural width compressions safely */}
             <h1 className="text-4xl sm:text-[54px] lg:text-[38px] xl:text-[50px] 2xl:text-[62px] font-extrabold tracking-tight text-slate-900 leading-[1.15] lg:leading-[1.12] xl:leading-[1.1]">
-              Complete Construction<br className="hidden sm:inline" />
-              ERP & Project<br className="hidden sm:inline" />
+              Complete Construction{" "}<br className="hidden sm:inline" />
+              ERP & Project{" "}<br className="hidden sm:inline" />
               Management Software
             </h1>
 
@@ -43,7 +43,7 @@ export default function Hero({ onBookDemo }) {
 
               {/* Secondary Outline CTA */}
               <button
-                onClick={onBookDemo}
+                onClick={onWatchDemo}
                 className="border border-[#1E56A0] hover:bg-blue-50 text-[#1E56A0] font-bold px-4 sm:px-6 py-3 rounded-xl flex items-center justify-center space-x-2 text-xs sm:text-[15px] tracking-wide active:scale-[0.98] transition-all cursor-pointer bg-transparent whitespace-nowrap"
               >
                 <span>Watch Live Demo</span>

@@ -20,16 +20,15 @@ export default function VideoModal({ isOpen, onClose }) {
           </svg>
         </button>
 
-        {/* Video Player Iframe */}
+        {/* Video Player */}
         <div className="w-full h-full bg-black">
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" // Placeholder video link - replace with actual demo video embed URL
-            title="Hitoffice ERP Demo Video"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          ></iframe>
+          <video
+            className="w-full h-full object-contain"
+            src="/assets/Hit-Office%20Construction%20ERP.mp4"
+            controls
+            autoPlay
+            playsInline
+          />
         </div>
       </div>
     </div>

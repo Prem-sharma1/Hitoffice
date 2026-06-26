@@ -26,7 +26,10 @@ export default function RootLayout({ children }) {
       className={`${jakartaSans.variable} h-full antialiased scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col font-sans text-brand-blue bg-white">
+      <body
+        className="min-h-full flex flex-col font-sans text-brand-blue bg-white"
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>

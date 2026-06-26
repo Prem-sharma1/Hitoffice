@@ -1,19 +1,6 @@
-"use client";
-
-import { useState } from "react";
 import Image from "next/image";
 
 export default function Footer() {
-  const [email, setEmail] = useState("");
-  const [subbed, setSubbed] = useState(false);
-
-  const handleSub = (e) => {
-    e.preventDefault();
-    if (!email) return;
-    setSubbed(true);
-    setEmail("");
-  };
-
   return (
     <footer className="bg-brand-navy text-slate-400 py-16 border-t border-white/5 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -22,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8 pb-12 border-b border-white/5">
 
           {/* Column 1: Logo and Details */}
-          <div className="space-y-6">
+          <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center space-x-3">
               <div className="relative w-[180px] h-[58px] hover:scale-105 transition-transform duration-200">
                 <Image
@@ -93,44 +80,7 @@ export default function Footer() {
                 </svg>
                 <a href="mailto:info@edss.co.in" className="text-slate-400 hover:text-white transition-colors">info@edss.co.in</a>
               </li>
-              <li className="flex items-center space-x-2.5">
-                <svg className="w-4 h-4 text-blue-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
-                </svg>
-                <a href="https://www.hit-office.com" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-white transition-colors">www.hit-office.com</a>
-              </li>
             </ul>
-          </div>
-
-          {/* Column 5: Newsletter */}
-          <div className="space-y-4">
-            <h4 className="text-white font-bold text-sm uppercase tracking-wider">Subscribe to our newsletter</h4>
-            <p className="text-xs text-slate-400 leading-relaxed">
-              Get the latest updates, industry articles, and project management tips.
-            </p>
-
-            {!subbed ? (
-              <form onSubmit={handleSub} className="flex flex-col gap-2">
-                <input
-                  type="email"
-                  required
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Enter email address"
-                  className="w-full px-4 py-2.5 rounded-lg text-sm bg-slate-800 border border-slate-700 focus:outline-none focus:ring-1 focus:ring-blue-500 text-white placeholder-slate-500"
-                />
-                <button
-                  type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2.5 rounded-lg text-xs transition-colors cursor-pointer"
-                >
-                  Subscribe
-                </button>
-              </form>
-            ) : (
-              <div className="bg-blue-600/20 border border-blue-600/30 p-3 rounded-lg text-blue-200 text-xs text-center font-medium animate-fade-in">
-                ✓ Subscribed successfully!
-              </div>
-            )}
           </div>
 
         </div>

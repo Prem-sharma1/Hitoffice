@@ -56,7 +56,7 @@ export default function Home() {
         </ScrollReveal>
         
         <ScrollReveal>
-          <CTA onBookDemo={openModal} />
+          <CTA onBookDemo={openModal} onWatchDemo={openVideo} />
         </ScrollReveal>
       </main>
       <Footer />

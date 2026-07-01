@@ -1,4 +1,5 @@
 import { Plus_Jakarta_Sans } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const jakartaSans = Plus_Jakarta_Sans({
@@ -30,6 +31,19 @@ export default function RootLayout({ children }) {
         className="min-h-full flex flex-col font-sans text-brand-blue bg-white"
         suppressHydrationWarning
       >
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-KNVH21QBG6"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-KNVH21QBG6');
+          `}
+        </Script>
         {children}
       </body>
     </html>

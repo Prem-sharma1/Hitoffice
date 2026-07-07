@@ -27,12 +27,15 @@ export default function RootLayout({ children }) {
       className={`${jakartaSans.variable} h-full antialiased scroll-smooth`}
       suppressHydrationWarning
     >
+      <head>
+        <script async custom-element="amp-analytics" src="https://cdn.ampproject.org/v0/amp-analytics-0.1.js"></script>
+      </head>
       <body
         className="min-h-full flex flex-col font-sans text-brand-blue bg-white"
         suppressHydrationWarning
       >
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-KNVH21QBG6"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17828173833"
           strategy="afterInteractive"
         />
         <Script id="google-analytics" strategy="afterInteractive">
@@ -42,8 +45,42 @@ export default function RootLayout({ children }) {
             gtag('js', new Date());
 
             gtag('config', 'G-KNVH21QBG6');
+            gtag('config', 'AW-17828173833');
+            gtag('event', 'conversion', {
+              'send_to': 'AW-17828173833/DvDACIqc0NYbEImwkbVC',
+              'value': 1.0,
+              'currency': 'INR'
+            });
           `}
         </Script>
+        
+        <amp-analytics type="gtag" data-credentials="include">
+          <script
+            type="application/json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                vars: {
+                  gtag_id: "AW-17828173833",
+                  config: {
+                    "AW-17828173833": { groups: "default" }
+                  }
+                },
+                triggers: {
+                  "C_UTO8HDzVvsM": {
+                    "on": "visible",
+                    "vars": {
+                      "event_name": "conversion",
+                      "value": 1.0,
+                      "currency": "INR",
+                      "send_to": ["AW-17828173833/DvDACIqc0NYbEImwkbVC"]
+                    }
+                  }
+                }
+              })
+            }}
+          />
+        </amp-analytics>
+
         {children}
       </body>
     </html>
